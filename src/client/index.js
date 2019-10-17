@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './components/SearchBar.jsx'
+import App from './components/App.jsx'
 
-ReactDOM.render(<SearchBar />, document.getElementById('jj-searchBar'));
+ReactDOM.render(<App />, document.getElementById('jj-searchBar'));

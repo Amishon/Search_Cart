@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-
+const db = require('./db.js')
 
 app.use(express.static(path.join(__dirname, '../dist/')));
 
@@ -9,26 +9,28 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
-app.get('/tasks', (request, response) => {
-    db.getTodos((error, result) => {
-        if (error) {
-            response.send(error);
+//fix this- testing below for db connection not a real func
+
+app.get('/getData', (request, response) => {
+    //return product data
+    db.checkQty((err, results) => {
+        if (err) {
+            console.log(err);
         }
-        else{
-            response.send(result);
+        else {
+            response.send(results);
+            // console.log(JSON.stringify(results));
         }
+        response.end();
     })
 })
 
-app.post('/tasks', (request, response) => {
-    db.addNewTask(request.body.task, (error, result) => {
-        if (error) {
-            response.send(error);
-        }
-        else {
-            response.sendStatus(200);
-        }
-    })
+app.post('/search_cart_subQty', (request, response) => {
+    //decrement db quantity for current item
+})
+
+app.post('/search_cart_removeFromCart', (request, response) => {
+    //set db quantity for current item to 0
 })
 
 app.listen(3002, () => console.log("personal server running on port 3002"));

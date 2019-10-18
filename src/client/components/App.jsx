@@ -7,7 +7,7 @@ class App extends React.Component {
         super ()
         
         this.state = {
-            data : []
+            data : [],
         }
         this.getData = this.getData.bind(this);
         this.addToCart = this.addToCart.bind(this);
@@ -24,7 +24,6 @@ class App extends React.Component {
                 this.setState({
                     data : res.data
                 })
-            // console.log(res.data)    
             })
         .catch((err) => {
             console.log('GETDATA ERROR: ', err)
@@ -32,12 +31,14 @@ class App extends React.Component {
     }
 
     addToCart(qty) {
+        // event.preventDefault();
         axios.post('/addToCart', {
-            qtyToAdd: qty
+            qtyToAdd: qty,
+            productNum : document.productID
         })
             .then((response) => {
                 console.log("post success");
-                getData();
+                this.getData();
             })
             .catch((error) => {
                 console.log("ERROR: ", error);

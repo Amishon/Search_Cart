@@ -31,11 +31,7 @@ app.post('/addToCart', (request, response) => {
             console.log('addToCart Success');
         }
         response.end();
-    }, 1, 1)
-})
-
-app.post('/search_cart_removeFromCart', (request, response) => {
-    //set db quantity for current item to 0
+    }, request.body.productNum, request.body.qtyToAdd)
 })
 
 app.listen(3002, () => console.log("personal server running on port 3002"));

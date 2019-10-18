@@ -26,22 +26,28 @@ const products = mongoose.model('products', productsSchema);
 
 function seedOnce() {
   if (!isSeeded) {
-    // products.remove({});
-    products.insertMany(productsData.data, (err, res) => {
+    products.deleteMany({}, (err, res) => {
       if (err) {
         console.log(err)
       } else {
-        console.log('db seeded');
+        console.log('db cleared before seeding');
+        products.insertMany(productsData.data, (err, res) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log('db seeded');
+          }
+        })
       }
-    })
+    });
   }
   isSeeded = true;
 }
 
 seedOnce();
 
-const checkQty = (callback) => {
-  products.find({category_id:1}, (err, res) => {
+const getProductData = (callback, itemId) => {
+  products.find({id: itemId}, (err, res) => {
     if (err) {
       callback(err, null);
     } else {
@@ -50,4 +56,15 @@ const checkQty = (callback) => {
   })
 }
 
-module.exports = {checkQty};
+const addToCart = (callback, itemId, qtyToAdd) => {
+  console.log('addToCart invoked');
+  products.updateOne({id: itemId}, { $inc: {qty: qtyToAdd}}, ((err, res) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, res)
+    } 
+  }))
+}
+
+module.exports = {getProductData, addToCart};

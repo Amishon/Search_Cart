@@ -8,25 +8,30 @@ app.use(express.static(path.join(__dirname, '../dist/')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
-//fix this- testing below for db connection not a real func
-
-app.get('/getData', (request, response) => {
+app.get('/getData/:itemId', (request, response) => {
     //return product data
-    db.checkQty((err, results) => {
+    db.getProductData((err, results) => {
         if (err) {
-            console.log(err);
+            console.log('GETPRODUCTDATAERROR: ', err);
         }
         else {
             response.send(results);
-            // console.log(JSON.stringify(results));
+            console.log('sending data from server');
         }
         response.end();
-    })
+    },request.params.itemId)
 })
 
-app.post('/search_cart_subQty', (request, response) => {
-    //decrement db quantity for current item
+app.post('/addToCart', (request, response) => {
+    db.addToCart((err, results) => {
+        if (err) {
+            console.log('addToCartERROR: ', err);
+        } else {
+            response.send(results);
+            console.log('addToCart Success');
+        }
+        response.end();
+    }, 1, 1)
 })
 
 app.post('/search_cart_removeFromCart', (request, response) => {

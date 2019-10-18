@@ -10,29 +10,43 @@ class App extends React.Component {
             data : []
         }
         this.getData = this.getData.bind(this);
+        this.addToCart = this.addToCart.bind(this);
     }
 
     componentDidMount() {
+        document.productID = 1;
         this.getData();
-        document.currentProduct = 1;
     }
 
     getData() {
-        axios.get('/getData')
+        axios.get('/getData/' + document.productID)
             .then((res) => {
                 this.setState({
                     data : res.data
                 })
-            console.log(res.data)    
+            // console.log(res.data)    
             })
         .catch((err) => {
-            console.log(err)
+            console.log('GETDATA ERROR: ', err)
         })    
     }
 
+    addToCart(qty) {
+        axios.post('/addToCart', {
+            qtyToAdd: qty
+        })
+            .then((response) => {
+                console.log("post success");
+                getData();
+            })
+            .catch((error) => {
+                console.log("ERROR: ", error);
+            })
+    }
 
     render() {
-        return <Cart />
+        // {console.log(this.state.data[0])}
+        return <Cart info = {this.state.data[0]} addToCart = {this.addToCart}/>
     }
 }
 

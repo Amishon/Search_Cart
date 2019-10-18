@@ -9,7 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.get('/getData/:itemId', (request, response) => {
-    //return product data
     db.getProductData((err, results) => {
         if (err) {
             console.log('GETPRODUCTDATAERROR: ', err);

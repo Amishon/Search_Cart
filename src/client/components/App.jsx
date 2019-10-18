@@ -1,6 +1,7 @@
 import React from 'react';
 import Cart from './Cart.jsx'
 import axios from 'axios'
+import SearchBar from './SearchBar.jsx';
 
 class App extends React.Component {
     constructor () {
@@ -11,10 +12,11 @@ class App extends React.Component {
         }
         this.getData = this.getData.bind(this);
         this.addToCart = this.addToCart.bind(this);
+        this.submitSearch = this.submitSearch.bind(this);
     }
 
     componentDidMount() {
-        document.productID = 1;
+        document.productID = 2;
         this.getData();
     }
 
@@ -28,6 +30,20 @@ class App extends React.Component {
         .catch((err) => {
             console.log('GETDATA ERROR: ', err)
         })    
+    }
+    
+
+    submitSearch(searchString) {
+        console.log("submitting search", searchString);
+        axios.get('/search/' + searchString)
+            .then((res) => {
+                console.log("submitSearch returned ", res.data[0].id)
+                document.productID = res.data[0].id
+                this.getData();
+            })
+            .catch((err) => {
+                console.log('submitSearch ERROR: ', err);
+            })
     }
 
     addToCart(qty) {
@@ -47,7 +63,12 @@ class App extends React.Component {
 
     render() {
         // {console.log(this.state.data[0])}
-        return <Cart info = {this.state.data[0]} addToCart = {this.addToCart}/>
+        return (
+            <div>
+                <SearchBar submitSearch = {this.submitSearch}/>
+                <Cart info = {this.state.data[0]} addToCart = {this.addToCart}/>
+            </div>
+        )
     }
 }
 

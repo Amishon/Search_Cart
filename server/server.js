@@ -21,6 +21,19 @@ app.get('/getData/:itemId', (request, response) => {
     },request.params.itemId)
 })
 
+app.get('/search/:searchString', (request, response) => {
+    db.searchProducts((err, results) => {
+        if (err) {
+            console.log('GETPRODUCTDATAERROR: ', err);
+        }
+        else {
+            response.send(results);
+            console.log('sending data from server');
+        }
+        response.end();
+    }, request.params.searchString)
+})
+
 app.post('/addToCart', (request, response) => {
     db.addToCart((err, results) => {
         if (err) {

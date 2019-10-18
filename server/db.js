@@ -67,4 +67,15 @@ const addToCart = (callback, itemId, qtyToAdd) => {
   }))
 }
 
-module.exports = {getProductData, addToCart};
+const searchProducts = (callback, searchString) => {
+  console.log('searchProducts invoked');
+  products.find({name: searchString}, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results)
+    } 
+  })
+}
+
+module.exports = {getProductData, addToCart, searchProducts};

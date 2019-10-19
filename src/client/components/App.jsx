@@ -39,6 +39,7 @@ class App extends React.Component {
             .then((res) => {
                 console.log("submitSearch returned ", res.data[0].id)
                 document.productID = res.data[0].id
+                // this.state.value = '';
                 this.getData();
             })
             .catch((err) => {

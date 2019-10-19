@@ -15,10 +15,30 @@
     border: none;
 }
 
+.addToCartButton {
+    width: 150px;
+    height: 35px;
+    background: url('./images/addToCart.png') no-repeat left;
+    background-size: 20%;
+    background-color: rgb(233, 180, 3);
+}
+
+.buyNowButton {
+    width: 150px;
+    height: 35px;
+    background: url('./images/buyNow.png') no-repeat left;
+    background-size: 20%;
+    background-color: rgb(233, 180, 3);
+}
+
 .input-group-addon {
     padding: 0!important;
 }
 
 .searchBarContainer {
     width: 1000px;
+}
+
+.cartContainer {
+    background-color: rgb(227, 227, 227);
 }

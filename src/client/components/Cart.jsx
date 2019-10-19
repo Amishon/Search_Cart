@@ -31,7 +31,9 @@ class Cart extends React.Component {
                             <option value = "3">3</option>
                         </select>
                     </form>
-                    <button onClick={this.props.addToCart.bind(this, Number(this.state.value))}>ADD TO CART</button>
+                    <button onClick={this.props.addToCart.bind(this, Number(this.state.value))}>Add to Cart</button>
+                    <br></br>
+                    <button>Buy Now</button>
                     <br></br>
                     already in cart: {this.props.info.qty}
                 </div>

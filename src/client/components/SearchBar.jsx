@@ -20,27 +20,26 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className="searchBarContainer">
-                <h2 className="searchBarHeader">Search Amishon</h2>
-                    <div className="search-bar">
-                        <label id="nav-search-label">Search</label>
-                        <span className="nav-facade-active" id="nav-auto-width-search-in">
-                            <span id="nav-fixed-width-search-in-content">
-                                All Categories
+                <div className="row">
+                    <div className="col-md-2"></div>
+                    <div className="col-md-8>">
+                        <div className="input-group">
+                            <span className="input-group-addon">
+                                <select className="categorySelect">
+                                    <option>All</option>
+                                    <option>Clothing</option>
+                                    <option>Cooking</option>
+                                    <option>Books</option>
+                                    <option>Toys</option>
+                                </select>
                             </span>
-                            <span className="nav-down-arrow nav-sprite"></span>
-                            <select title="Search In" className="searchSelect" id="searchDropdownBox" name="books_category">
-                                <option value="1" defaultValue="Something">Something</option>
-                                <option value="2" title="Clothes">Clothes</option>
-                                <option value="3" title="Books">Books</option>
-                                <option value="4" title="Toys">Toys</option>
-                            </select>
-                        </span>
-                    <div className="nav-searchfield-outer nav-sprite">
-                        <input type="text" id = "twotabsearchtextbox" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search your Amish desires..."></input>
+                            <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search your Amish desires..."></input>
+                            <span className="input-group-addon">
+                                <button className="buttonStyle" title="Go" value="Go" onClick={this.props.submitSearch.bind(this, this.state.searchString)}></button>
+                            </span>
+                        </div>
                     </div>
-                    <div className="nav-submit-button">
-                        <button className="nav-submit-input" title="Go" value="Go" onClick={this.props.submitSearch.bind(this, this.state.searchString)}>GO</button>
-                    </div>
+                    <div className="col-md-2"></div>
                 </div>
             </div>
         )

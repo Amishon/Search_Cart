@@ -1,22 +1,21 @@
 .search-bar {
     background: rgb(37, 135, 165);
-    width:965px;
+    width:1000px;
     height:auto;
     float:left;
     position:relative;
-    left:-17px;
 }
 
 #nav-search-label {
-  color: #333333;
-display: block;
-font-family: "Myriad Pro";
-font-size: 14px;
-font-weight: bold;
-left: 140px;
-line-height: 12px;
-position: absolute;
-top: 16px;
+    color: #333333;
+    display: block;
+    font-family: "Myriad Pro";
+    font-size: 14px;
+    font-weight: bold;
+    left: 140px;
+    line-height: 12px;
+    position: absolute;
+    top: 16px;
 }
 #nav-search-in {
 display: inline-block;
@@ -38,7 +37,7 @@ text-indent: 1px;
 text-overflow: ellipsis;
 white-space: nowrap;
 }
-
+/* 
 #nav-search-in.nav-facade-active .nav-down-arrow {
 display:inline-block;
 right: 10px;
@@ -46,26 +45,42 @@ top: 11px;
 background:url("search_arrow.png");
 height:5px;
 width:9px;
-}
+} */
 
-#nav-auto-width-search-in {
+/* #nav-auto-width-search-in {
+    background: #333;
     display:inline-block;
     right: 10px;
-    top: 11px;
+    top: 20px;
     background:url("search_arrow.png");
     height:5px;
     width: auto;
-    }
+} */
 
-.nav-facade-active #searchDropdownBox {
-cursor: pointer;
-height: 29px;
-left: 0;
-opacity: 0;
-top: 0;
-visibility: visible;
-width: auto;
+#nav-fixed-width-search-in-content {
+    color: #777777;
+    display: inline-block;
+    font-family: "arial","sans-serif";
+    font-size: 11px;
+    height: 27px;
+    line-height: 27px;
+    margin: 0 59px 0 6px;
+    text-indent: 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 60px;
+    overflow: visible;
 }
+/* .nav-facade-active {
+    background: rgb(187, 28, 182);
+    cursor: pointer;
+    height: 29px;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    visibility: visible;
+    width: auto;
+} */
 
 #searchDropdownBox {
 background: none repeat scroll 0 0 white;
@@ -77,13 +92,13 @@ margin: 0;
 outline: medium none;
 padding: 0;
 position: absolute;
-top: 3px;
+top: 0px;
 visibility: hidden;
 width: 190px;
 }
-.nav-sprite {
+/* .nav-sprite {
 background:url("search_bck.png") no-repeat;
-}
+} */
 
 .nav-searchfield-outer {
 height: 30px;
@@ -141,5 +156,5 @@ width: 34px;
 
 .searchBarHeader {
     text-align: center;
-     margin-top:20px;
+    margin-top:20px;
 }

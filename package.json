@@ -24,7 +24,7 @@
     "start-server": "nodemon server/server.js --watch",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-webpack": "webpack -d --watch"
+    "start-webpack": "webpack -d --watch"    
   },
   "keywords": [],
   "author": "",

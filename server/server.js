@@ -46,4 +46,4 @@ app.post('/addToCart', (request, response) => {
     }, request.body.productNum, request.body.qtyToAdd)
 })
 
-app.listen(3002, () => console.log("personal server running on port 3002"));
+app.listen(3002, () => console.log("personal server running on port 3003"));

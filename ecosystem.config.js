@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-      name: 'searchBar',
+      name: 'tutorial',
       script: './server/server.js'
     }],
     deploy: {
@@ -10,7 +10,7 @@ module.exports = {
         key: '~/.ssh/tutorial.pem',
         ref: 'origin/master',
         repo: 'git@github.com:Amishon/Search_Cart.git',
-        path: '/home/ubuntu/searchCart',
+        path: '/home/ubuntu/',
         'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
       }
     }

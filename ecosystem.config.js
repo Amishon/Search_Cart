@@ -10,7 +10,7 @@ module.exports = {
         key: '~/.ssh/tutorial.pem',
         ref: 'origin/master',
         repo: 'git@github.com:Amishon/Search_Cart.git',
-        path: '/home/ubuntu/Search_Cart',
+        path: '/home/ubuntu/searchCart',
         'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
       }
     }

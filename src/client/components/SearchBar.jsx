@@ -19,28 +19,9 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div className="searchBarContainer">
-                <div className="row">
-                    <div className="col-md-2"></div>
-                    <div className="col-md-8>">
-                        <div className="input-group">
-                            <span className="input-group-addon">
-                                <select className="categorySelect">
-                                    <option>All</option>
-                                    <option>Clothing</option>
-                                    <option>Cooking</option>
-                                    <option>Books</option>
-                                    <option>Toys</option>
-                                </select>
-                            </span>
-                            <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search your Amish desires..."></input>
-                            <span className="input-group-addon">
-                                <button className="buttonStyle" title="Go" value="Go" onClick={this.props.submitSearch.bind(this, this.state.searchString)}></button>
-                            </span>
-                        </div>
-                    </div>
-                    <div className="col-md-2"></div>
-                </div>
+            <div>
+                <input type="text" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search your Amish desires..."></input>
+                <button onClick={this.props.submitSearch.bind(this, this.state.searchString)}>search now</button>
             </div>
         )
     }

@@ -19,10 +19,9 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div className="searchBarContainer">
-                <div className="row">
-                    <div className="col-md-2"></div>
-                    <div className="col-md-8>">
+            <div className="nav-container">
+                <div className="">
+                    <div className="search-bar-container">
                         <div className="input-group">
                             <span className="input-group-addon">
                                 <select className="categorySelect">
@@ -38,8 +37,8 @@ class SearchBar extends React.Component {
                                 <button className="buttonStyle" title="Go" value="Go" onClick={this.props.submitSearch.bind(this, this.state.searchString)}></button>
                             </span>
                         </div>
+                        <div className="nav-cart-img"><span className="nav-cart-text">3</span></div>
                     </div>
-                    <div className="col-md-2"></div>
                 </div>
             </div>
         )

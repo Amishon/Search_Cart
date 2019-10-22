@@ -1,3 +1,9 @@
+.nav-container {
+    
+    background-color: rgb(19, 20, 65);
+}
+
+
 .categorySelect {
     background: transparent;
     border: none;
@@ -19,6 +25,29 @@
     padding: 0!important;
 }
 
-.searchBarContainer {
-    width: 1000px;
+.search-bar-container {
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+}
+
+.nav-cart-img {
+    height: 48px;
+    background: url('./images/nav_cart.png') no-repeat center;
+    background-position: 49.6% 25%;
+    background-size: 10%;
+    background-color: black;
+    text-align: center;
+    font-size: 28px;
+    line-height: 27px;
+    
+}
+
+.nav-cart-text {
+    /* add amazon ember font eventually */
+    color: #f08804;
+    font-weight: 700;
+    
+    
+
 }

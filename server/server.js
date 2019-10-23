@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.get('/getData/:itemId', (request, response) => {
+    console.log("server /getData itemId = ", request.params.itemId);
     db.getProductData((err, results) => {
         if (err) {
             console.log('GETPRODUCTDATAERROR: ', err);
@@ -24,7 +25,7 @@ app.get('/getData/:itemId', (request, response) => {
 app.get('/search/:searchString', (request, response) => {
     db.searchProducts((err, results) => {
         if (err) {
-            console.log('GETPRODUCTDATAERROR: ', err);
+            console.log('/search ERROR: ', err);
         }
         else {
             response.send(results);

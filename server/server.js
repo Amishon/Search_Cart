@@ -46,4 +46,15 @@ app.post('/addToCart', (request, response) => {
     }, request.body.productNum, request.body.qtyToAdd)
 })
 
+app.get('/cartCount', (request, response) => {
+    console.log("server cartCount endpoint hit")
+    db.getCartCount((err, results) => {
+        if (err) {
+            console.log("cartCount server side error: ", err)
+        } else {
+            response.send(results);
+        }
+    });
+})
+
 app.listen(3003, () => console.log("personal server running on port 3003"));

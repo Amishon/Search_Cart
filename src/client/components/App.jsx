@@ -10,9 +10,11 @@ class App extends React.Component {
         this.state = {
             data : [],
         }
+
         this.getData = this.getData.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.submitSearch = this.submitSearch.bind(this);
+        this.getCartCount = this.getCartCount.bind(this);
     }
 
     componentDidMount() {
@@ -47,26 +49,40 @@ class App extends React.Component {
     }
 
     addToCart(qty) {
-        // event.preventDefault();
         axios.post('/addToCart', {
             qtyToAdd: qty,
             productNum : document.productID
         })
             .then((response) => {
-                console.log("post success");
                 this.getData();
+                
             })
             .catch((error) => {
                 console.log("ERROR: ", error);
             })
     }
 
+ 
+
+    getCartCount() {
+        console.log("app's getCartCount")
+        axios.get('/cartCount')
+            .then((res) => {
+                console.log(res);
+                this.setState({
+                    allEntries : res.data
+                })
+            })
+            .catch((err) => {
+                console.log('getCartCount ERROR: ', err)
+            }) 
+    }
+
     render() {
-        // {console.log(this.state.data[0])}
         return (
             <div>
-                <SearchBar submitSearch = {this.submitSearch}/>
-                <Cart info = {this.state.data[0]} addToCart = {this.addToCart}/>
+                <SearchBar submitSearch = {this.submitSearch} cartCount = {this.state.cartCount} data = {this.state.allEntries}/>
+                <Cart info = {this.state.data[0]} addToCart = {this.addToCart} getCartCount = {this.getCartCount} />
             </div>
         )
     }

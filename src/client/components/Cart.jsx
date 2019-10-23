@@ -7,9 +7,7 @@ class Cart extends React.Component {
         this.state = {
             value : '1'
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        
+        this.handleChange = this.handleChange.bind(this); 
     }
 
     handleChange(event) {

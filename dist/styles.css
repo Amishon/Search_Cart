@@ -80,6 +80,10 @@
     color: #B12704!important;
 }
 
+.jj-cart-prime-status-container {
+    /* maybe use later? */
+}
+
 .jj-cart-prime-status {
     height: 30px;
     background: url('./images/primeLogo.png') no-repeat left;
@@ -88,6 +92,10 @@
 }
 
 .jj-cart-prime-shipping-text {
+    /* this needs work... */
+    margin-left: 40%;
+    position: absolute;
+    top: 20%;
     color: #555!important;
     font-style: normal;
 }
@@ -100,7 +108,12 @@
 }
 
 .jj-cart-qty-select {
+    margin-top: 40px;
     width: 50px;
+}
+
+.jj-cart-buttons-container {
+    margin-top: 40px
 }
 
 .jj-add-to-cart-button-container {
@@ -151,9 +164,7 @@
     margin-top:10px;
 }
 
-.jj-cart-buttons-container {
-    margin-top: 10px
-}
+
 
 .jj-add-to-cart-button-container:hover {
     background: #bf952d;

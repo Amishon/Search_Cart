@@ -14,12 +14,15 @@ class SearchBar extends React.Component {
 
         this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
         this.submitSearch = this.submitSearch.bind(this);
-        
-        
     }
 
     handleSearchBarChange(event) {
         this.setState({searchString: event.target.value})
+    }
+
+    handleCategoryChange(event) {
+        this.setState({category: event.target.value})
+        console.log(this.state.category);
     }
 
     submitSearch(searchString) {
@@ -64,11 +67,11 @@ class SearchBar extends React.Component {
                         <div className="input-group">
                             <span className="input-group-addon">
                                 <select className="categorySelect">
-                                    <option>All</option>
-                                    <option>Clothing</option>
-                                    <option>Cooking</option>
-                                    <option>Books</option>
-                                    <option>Toys</option>
+                                    <option value='0'>All</option>
+                                    <option value='1'>Clothing</option>
+                                    <option value='2'>Cooking</option>
+                                    <option value='3'>Books</option>
+                                    <option value='4'>Toys</option>
                                 </select>
                             </span>
                             <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search for Clothing, Cooking, Books, and Toys..."></input>

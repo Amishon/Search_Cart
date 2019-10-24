@@ -49,3 +49,15 @@
     color: #f08804;
     font-weight: 700;
 }
+
+
+
+
+.jj-cart-container {
+    /* border-radius: 4px; */
+    display: block;
+}
+
+.jj-cart {
+    box-sizing: border-box;
+}

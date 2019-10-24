@@ -18,11 +18,9 @@ class Cart extends React.Component {
     }
     
     render() {
-        if (this.props.info) {
-            return (
-                <div>
-                    Name: {this.props.info.name}<br></br>
-                    Price: {this.props.info.price}
+        return (
+            <div className="jj-cart-container">
+                <div className = 'jj-cart'>
                     <br></br>
                     <form>
                         <select value={this.state.value} onChange={this.handleChange}>
@@ -35,16 +33,10 @@ class Cart extends React.Component {
                     <br></br>
                     <button onClick={this.props.getCartCount.bind(this)}>Cart Count</button>
                     <br></br>
-                    already in cart: {this.props.info.qty}
                 </div>
-            
-        )} else {
-            return (
-                <div>
-                </div>
-            )
-        }
-    }
+            </div>
+        )}
 }
+
 
 export default Cart;

@@ -7,9 +7,7 @@ class Cart extends React.Component {
         this.state = {
             value : '1'
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        
+        this.handleChange = this.handleChange.bind(this); 
     }
 
     handleChange(event) {
@@ -31,7 +29,9 @@ class Cart extends React.Component {
                             <option value = "3">3</option>
                         </select>
                     </form>
-                    <button onClick={this.props.addToCart.bind(this, Number(this.state.value))}>ADD TO CART</button>
+                    <button onClick={this.props.addToCart.bind(this, Number(this.state.value))}>Add to Cart</button>
+                    <br></br>
+                    <button onClick={this.props.getCartCount.bind(this)}>Cart Count</button>
                     <br></br>
                     already in cart: {this.props.info.qty}
                 </div>

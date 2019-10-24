@@ -78,4 +78,43 @@ const searchProducts = (callback, searchString) => {
   })
 }
 
-module.exports = {getProductData, addToCart, searchProducts};
+const getCartCount = (callback) => {
+  console.log("getCartCount invoked on db");
+
+  products.find({}, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results)
+    }
+  })
+
+  // var test = products.aggregate(
+  //   [
+  //     {
+  //       $group : {
+  //         _id: null,
+  //         cartCount : { $sum: this.qty }
+  //       }
+  //     }
+  //   ]
+  // );
+
+  // console.log(test._pipeline[0]);
+
+  // products.mapReduce(function() { emit( this.qty); },
+  //                    function(key, values) {return (values)},
+  //                    {
+  //                      "query": {},
+  //                      "out": "cartCount"
+  //                    }, (error, results) => {
+  //                      if (err) {
+  //                        callback(error, null);
+  //                      } else {
+  //                        callback(null, results);
+  //                      }
+  //                    });
+
+}
+
+module.exports = {getProductData, addToCart, searchProducts, getCartCount};

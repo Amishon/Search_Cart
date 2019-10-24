@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.0",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.19.3",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
@@ -23,7 +24,7 @@
     "start-server": "nodemon server/server.js --watch",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-webpack": "webpack -d --watch"
+    "start-webpack": "webpack -d --watch"    
   },
   "keywords": [],
   "author": "",

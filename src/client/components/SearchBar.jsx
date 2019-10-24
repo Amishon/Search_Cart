@@ -58,34 +58,28 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        if (this.state.cartCount !== undefined) {
-            return (
-                <div className="nav-container">
-                        <div className="search-bar-container">
-                            <div className="input-group">
-                                <span className="input-group-addon">
-                                    <select className="categorySelect">
-                                        <option>All</option>
-                                        <option>Clothing</option>
-                                        <option>Cooking</option>
-                                        <option>Books</option>
-                                        <option>Toys</option>
-                                    </select>
-                                </span>
-                                <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search for Clothing, Cooking, Books, and Toys..."></input>
-                                <span className="input-group-addon">
-                                    <button className="buttonStyle" title="Go" value="Go" onClick={this.submitSearch.bind(this, this.state.searchString)}></button>
-                                </span>
-                            </div>
+        return (
+            <div className="nav-container">
+                    <div className="search-bar-container">
+                        <div className="input-group">
+                            <span className="input-group-addon">
+                                <select className="categorySelect">
+                                    <option>All</option>
+                                    <option>Clothing</option>
+                                    <option>Cooking</option>
+                                    <option>Books</option>
+                                    <option>Toys</option>
+                                </select>
+                            </span>
+                            <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search for Clothing, Cooking, Books, and Toys..."></input>
+                            <span className="input-group-addon">
+                                <button className="buttonStyle" title="Go" value="Go" onClick={this.submitSearch.bind(this, this.state.searchString)}></button>
+                            </span>
                         </div>
-                    <div className="nav-cart-img"><span className="nav-cart-text">{this.state.cartCount}</span></div>
-                </div>
-            ) 
-        } else {
-            return (
-                <div></div>
-            )
-        }
+                    </div>
+                <div className="nav-cart-img"><span className="nav-cart-text">{this.state.cartCount ? this.state.cartCount : null}</span></div>
+            </div>
+        ) 
     }
 }
 

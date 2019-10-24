@@ -50,6 +50,144 @@
     font-weight: 700;
 }
 
+<<<<<<< HEAD
+.jj-cart-container {
+    
+    float: right;
+    width: 18%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    display: block;
+    font-size: 13px;
+    /* line-height: 19px; */
+    color: #111;
+    margin-right: 2%;
+    margin-top: 3%;
+}
+
+.jj-cart {
+    
+    position: relative;
+}
+
+.jj-cart-inner {
+    position: relative;
+    padding: 14px 18px;
+}
+
+.jj-cart-price-text {
+    font-size: 17px!important;
+    line-height: 1.255!important;
+    color: #B12704!important;
+}
+
+.jj-cart-prime-status-container {
+    /* maybe use later? */
+}
+
+.jj-cart-prime-status {
+    height: 30px;
+    background: url('./images/primeLogo.png') no-repeat left;
+    background-size: 35%;
+    left: 10px;
+}
+
+.jj-cart-prime-shipping-text {
+    /* this needs work... */
+    margin-left: 40%;
+    position: absolute;
+    top: 20%;
+    color: #555!important;
+    font-style: normal;
+}
+
+
+.jj-cart-stock-status {
+    font-size: 17px!important;
+    line-height: 1.255!important;
+    color: #007600!important;
+}
+
+.jj-cart-qty-select {
+    margin-top: 40px;
+    width: 50px;
+}
+
+.jj-cart-buttons-container {
+    margin-top: 40px
+}
+
+.jj-add-to-cart-button-container {
+    height: 33px;
+    top: 2px;
+    left: 2px;
+    margin: auto;
+    background: #f0c14b;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+}
+
+
+.jj-add-to-cart-button {
+    
+    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+    background: url('./images/addToCartIcon.png') no-repeat left;
+    background-size: 13%;
+    background-position: 1% 50%;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    outline: 0;
+    overflow: visible;
+}
+
+.jj-add-to-cart-button-text {
+    padding: 0 10px 0 11px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.jj-buy-now-button-container {
+    height: 33px;
+    top: 2px;
+    left: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ed9220;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    margin-top:10px;
+}
+
+
+
+.jj-add-to-cart-button-container:hover {
+    background: #bf952d;
+}
+
+.jj-buy-now-button-container:hover {
+    background: #c4781a;
+}
+
+.jj-buy-now-button {
+    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+    background: url('./images/buyNowIcon.png') no-repeat left;
+    background-size: 13%;
+    background-position: 1% 50%;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    outline: 0;
+    overflow: visible;
+=======
 
 
 
@@ -60,4 +198,5 @@
 
 .jj-cart {
     box-sizing: border-box;
+>>>>>>> d262b09626919f3e36611c1250f79aca4deea972
 }

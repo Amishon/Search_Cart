@@ -64,6 +64,7 @@ class Cart extends React.Component {
     render() {
         return (
             <div className="jj-cart-container">
+<<<<<<< HEAD
                 <div className="jj-cart">
                     <div className="jj-cart-inner">
                         <div className="jj-cart-price-text">${this.state.data ? this.state.data.price : null}</div>
@@ -92,6 +93,24 @@ class Cart extends React.Component {
             </div>
         )
     }
+=======
+                <div className = 'jj-cart'>
+                    <br></br>
+                    <form>
+                        <select value={this.state.value} onChange={this.handleChange}>
+                            <option value = "1">1</option>
+                            <option value = "2">2</option>
+                            <option value = "3">3</option>
+                        </select>
+                    </form>
+                    <button onClick={this.props.addToCart.bind(this, Number(this.state.value))}>Add to Cart</button>
+                    <br></br>
+                    <button onClick={this.props.getCartCount.bind(this)}>Cart Count</button>
+                    <br></br>
+                </div>
+            </div>
+        )}
+>>>>>>> d262b09626919f3e36611c1250f79aca4deea972
 }
 
 

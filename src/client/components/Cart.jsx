@@ -6,7 +6,7 @@ class Cart extends React.Component {
         super(props);
 
         this.state = {
-            optionValue : '1'
+            optionValue : 'Qty'
         };
 
         this.getData = this.getData.bind(this);
@@ -62,33 +62,35 @@ class Cart extends React.Component {
 
     
     render() {
-        if (this.state.data) {
-            return (
-                <div>
-                    Name: {this.state.data.name}<br></br>
-                    Price: {this.state.data.price}
-                    <br></br>
-                    <form>
-                        <select value={this.state.optionValue} onChange={this.handleChange}>
-                            <option value = "1">1</option>
-                            <option value = "2">2</option>
-                            <option value = "3">3</option>
-                        </select>
-                    </form>
-                    <button onClick={this.addToCart.bind(this, Number(this.state.optionValue))}>Add to Cart</button>
-                    <br></br>
-                    <button >Buy Now</button>
-                    <br></br>
-                    already in cart: {this.state.data.qty}
-                </div>
-            
-        )} else {
-            return (
-                <div>
-                </div>
-            )
-        }
+        return (
+            <div className="jj-cart-container">
+                <div className="jj-cart">
+                    <div className="jj-cart-inner">
+                        <div className="jj-cart-price-text">${this.state.data ? this.state.data.price : null}</div>
+                        <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE One-Day Shipping</span></div>
+                        <div className="jj-cart-stock-status">In Stock.</div>
+                        <form>
+                                <select className="jj-cart-qty-select" value={this.state.optionValue} onChange={this.handleChange}>
+                                <option defaultValue disabled>Qty</option>
+                                <option value = "1">1</option>
+                                <option value = "2">2</option>
+                                <option value = "3">3</option>
+                            </select>
+                        </form>
+                        <div className="jj-cart-buttons-container">
+                            <div className="jj-add-to-cart-button-container">
+                                <button className = "jj-add-to-cart-button" onClick={this.addToCart.bind(this, Number(this.state.optionValue))}><span className="jj-add-to-cart-button-text" >Add to Cart</span></button>
+                            </div>
+                            <div className="jj-buy-now-button-container">
+                                <button className = "jj-buy-now-button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        )
     }
 }
+
 
 export default Cart;

@@ -4,5 +4,5 @@ import SearchBar from './components/searchBar.jsx';
 import Cart from './components/Cart.jsx';
 
 
-ReactDOM.render(<App />, document.getElementById('jj-searchBar'));
-ReactDOM.render(<App />, document.getElementById('jj-cart'));
+ReactDOM.render(<SearchBar />, document.getElementById('jj-searchBar'));
+ReactDOM.render(<Cart />, document.getElementById('jj-cart'));

@@ -50,7 +50,6 @@
     font-weight: 700;
 }
 
-<<<<<<< HEAD
 .jj-cart-container {
     
     float: right;
@@ -187,16 +186,4 @@
     top: 0;
     outline: 0;
     overflow: visible;
-=======
-
-
-
-.jj-cart-container {
-    /* border-radius: 4px; */
-    display: block;
-}
-
-.jj-cart {
-    box-sizing: border-box;
->>>>>>> d262b09626919f3e36611c1250f79aca4deea972
 }

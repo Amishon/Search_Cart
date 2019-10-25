@@ -54,10 +54,10 @@
 .jj-cart-container {
     
     /* float: right; */
-    width: 18%;
+    /* width: 18%; */
     border: 1px solid lightgrey;
     border-radius: 3px;
-    display: block;
+    /* display: block; */
     font-size: 13px;
     /* line-height: 19px; */
     color: #111;

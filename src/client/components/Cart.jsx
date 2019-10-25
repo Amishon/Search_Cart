@@ -16,10 +16,10 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
-        // window.addEventListener('productChange', (event) => {
-        //     console.log("eventListener productId", window.productID)
-        //     this.getData();
-        // })
+        window.addEventListener('productChange', (event) => {
+            console.log("eventListener productId", window.productID)
+            this.getData();
+        })
 
         window.addEventListener('updateProduct', (event) => {
             this.setState({

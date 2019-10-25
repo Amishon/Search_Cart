@@ -14,6 +14,7 @@ class SearchBar extends React.Component {
 
         this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
         this.submitSearch = this.submitSearch.bind(this);
+        this.getCartCount = this.getCartCount.bind(this);
     }
 
     handleSearchBarChange(event) {
@@ -32,7 +33,7 @@ class SearchBar extends React.Component {
                 console.log("submitSearch returned ", res.data.id)
                 document.productID = res.data.id;
                 //event listener to update cart info here
-                const event = new CustomEvent('productChange', {});
+                const event = new CustomEvent('productChange', {detail : res.data.id});
                 window.dispatchEvent(event);
             })
             .catch((err) => {

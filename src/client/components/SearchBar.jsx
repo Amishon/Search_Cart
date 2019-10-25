@@ -42,7 +42,7 @@ class SearchBar extends React.Component {
     }
 
     getCartCount() {
-        console.log("SearchApp's getCartCount")
+        console.log("SearchBar's getCartCount invoked")
         axios.get('/cartCount')
             .then((res) => {     
                 this.setState({
@@ -57,6 +57,7 @@ class SearchBar extends React.Component {
 
     componentDidMount() {
         window.addEventListener('addToCart', (event) => {
+            console.log("addToCart event heard");
             this.getCartCount();
         })
     }

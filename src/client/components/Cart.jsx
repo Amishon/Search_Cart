@@ -32,13 +32,12 @@ class Cart extends React.Component {
     }
 
     getData() {
-        console.log("getData invoked, productID = ", document.productID);
+        console.log("getData invoked, productID = ", this.state.currentProduct);
         axios.get('/getData/' + this.state.currentProduct)
         .then((res) => {
             this.setState({
                 data : res.data[0]
             })
-            console.log(this.state);
         })
         .catch((err) => {
             console.log('GETDATA ERROR: ', err)

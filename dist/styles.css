@@ -54,7 +54,7 @@
 .jj-cart-container {
     
     /* float: right; */
-    width: 18%;
+    width: 100%;
     border: 1px solid lightgrey;
     border-radius: 3px;
     /* display: block; */
@@ -185,7 +185,7 @@
     left: 0;
     top: 0;
     outline: 0;
-    overflow: visible;
+    /* overflow: visible; */
 }
 
 

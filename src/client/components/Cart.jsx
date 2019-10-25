@@ -46,9 +46,7 @@ class Cart extends React.Component {
             })
     }
 
-    handleChange(event) {
-        this.setState({optionValue: event.target.value})
-    }
+    
 
     componentDidMount() {
         document.productID = 1;  

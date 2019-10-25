@@ -16,10 +16,11 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('productChange', (event) => {
-            console.log("eventListener productId", window.productID)
-            this.getData();
-        })
+        // window.addEventListener('productChange', (event) => {
+        //     console.log("eventListener productId", window.productID)
+        //     this.getData();
+        // })
+
         window.addEventListener('updateProduct', (event) => {
             this.setState({
                 currentProduct: event.detail
@@ -32,7 +33,7 @@ class Cart extends React.Component {
 
     getData() {
         console.log("getData invoked, productID = ", document.productID);
-        axios.get('/getData/' + document.productID)
+        axios.get('/getData/' + this.state.productID)
         .then((res) => {
             this.setState({
                 data : res.data[0]
@@ -44,16 +45,17 @@ class Cart extends React.Component {
         })    
     }
 
-    // updateQty(qty) {
-    //     const event = new CustomEvent('addToCart', {
-    //         detail: qty
-    //     });
-    //     window.dispatchEvent(event);
-    // }
+    updateQty(qty) {
+        const event = new CustomEvent('addToCart', {
+            detail: qty
+        });
+        window.dispatchEvent(event);
+    }
 
     addToCart() {
-        let qty = Number(this.state.optionValue)
-        // this.updateQty(qty)
+        let qty = Number(this.state.optionValue);
+
+        this.updateQty(qty);
 
         axios.post('/addToCart', {
             qtyToAdd: qty,
@@ -73,9 +75,6 @@ class Cart extends React.Component {
         this.setState({optionValue: event.target.value})
     }
 
-   
-
-    
     render() {
         return (
             <div className="jj-cart-container">

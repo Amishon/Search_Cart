@@ -48,6 +48,7 @@ class SearchBar extends React.Component {
                 this.setState({
                     cartCount : res.data.reduce((acc, cur) => acc + cur.qty, 0)
                 })
+                console.log("getCartCount response = ", res.data)
                 console.log("cartCount = ", this.state.cartCount)
             })
             .catch((err) => {

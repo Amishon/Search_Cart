@@ -6,12 +6,28 @@ class Cart extends React.Component {
         super(props);
 
         this.state = {
-            optionValue : 'Qty'
+            optionValue : 'Qty',
+            currentProduct: 1
         };
 
         this.getData = this.getData.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener('productChange', (event) => {
+            console.log("eventListener productId", window.productID)
+            this.getData();
+        })
+        window.addEventListener('updateProduct', (event) => {
+            this.setState({
+                currentProduct: event.detail
+            })
+        })
+
+        console.log("componentDidMount productId", window.productID)
+        this.getData();
     }
 
     getData() {
@@ -28,13 +44,20 @@ class Cart extends React.Component {
         })    
     }
 
-    addToCart(qty) {
-        const event = new CustomEvent('addToCart', {});
-        window.dispatchEvent(event);
+    // updateQty(qty) {
+    //     const event = new CustomEvent('addToCart', {
+    //         detail: qty
+    //     });
+    //     window.dispatchEvent(event);
+    // }
+
+    addToCart() {
+        let qty = Number(this.state.optionValue)
+        // this.updateQty(qty)
 
         axios.post('/addToCart', {
             qtyToAdd: qty,
-            productNum : document.productID
+            productNum : this.state.currentProduct
         })
             .then((response) => {
                 console.log("addToCart response = ", response)
@@ -50,15 +73,7 @@ class Cart extends React.Component {
         this.setState({optionValue: event.target.value})
     }
 
-    componentDidMount() {
-        document.productID = 1;  
-        window.addEventListener('productChange', (event) => {
-            console.log("eventListener productId", window.productID)
-            this.getData();
-        })
-        console.log("componentDidMount productId", window.productID)
-        this.getData();
-    }
+   
 
     
     render() {
@@ -73,7 +88,7 @@ class Cart extends React.Component {
                         </span>
                         <form>
                                 <select className="jj-cart-qty-select" value={this.state.optionValue} onChange={this.handleChange}>
-                                <option defaultValue disabled>Qty</option>
+                                <option defaultValue disabled>Qty: {this.state.option}</option>
                                 <option value = "1">1</option>
                                 <option value = "2">2</option>
                                 <option value = "3">3</option>
@@ -81,7 +96,7 @@ class Cart extends React.Component {
                         </form>
                         <div className="jj-cart-buttons-container">
                             <div className="jj-add-to-cart-button-container">
-                                <button className = "jj-add-to-cart-button" onClick={this.addToCart.bind(this, Number(this.state.optionValue))}><span className="jj-add-to-cart-button-text" >Add to Cart</span></button>
+                                <button className = "jj-add-to-cart-button" onClick={this.addToCart.bind(this)}><span className="jj-add-to-cart-button-text" >Add to Cart</span></button>
                             </div>
                             <div className="jj-buy-now-button-container">
                                 <button className = "jj-buy-now-button">Buy Now</button>

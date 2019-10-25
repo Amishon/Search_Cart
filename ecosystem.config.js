@@ -6,7 +6,7 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: 'ec2-13-59-243-41.us-east-2.compute.amazonaws.com/',
+        host: 'ec2-13-59-243-41.us-east-2.compute.amazonaws.com',
         key: '~/.ssh/tutorial.pem',
         ref: 'origin/dev',
         repo: 'git@github.com:Amishon/Search_Cart.git',

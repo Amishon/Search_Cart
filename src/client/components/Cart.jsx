@@ -6,7 +6,7 @@ class Cart extends React.Component {
         super(props);
 
         this.state = {
-            optionValue : 'Qty',
+            optionValue : 1,
             currentProduct: 1
         };
 
@@ -16,18 +16,17 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('productChange', (event) => {
-            console.log("eventListener productId", window.productID)
-            this.getData();
-        })
+        // window.addEventListener('productChange', (event) => {
+        //     console.log("eventListener productId", window.productID)
+        //     this.getData();
+        // })
 
         window.addEventListener('updateProduct', (event) => {
             this.setState({
                 currentProduct: event.detail
             })
+            this.getData();
         })
-
-        console.log("componentDidMount productId", window.productID)
         this.getData();
     }
 
@@ -51,9 +50,9 @@ class Cart extends React.Component {
         window.dispatchEvent(event);
     }
 
-    addToCart() {
-        let qty = Number(this.state.optionValue);
-
+    addToCart(qty) {
+        // let qty = Number(this.state.optionValue);
+        console.log("addToCart invoked, qty = ", qty)
         this.updateQty(qty);
 
         axios.post('/addToCart', {
@@ -85,8 +84,8 @@ class Cart extends React.Component {
                             <div className="jj-cart-stock-status">In Stock.</div>
                         </span>
                         <form>
-                                <select className="jj-cart-qty-select" value={this.state.optionValue} onChange={this.handleChange}>
-                                <option defaultValue disabled>Qty: {this.state.option}</option>
+                                <select className="jj-cart-qty-select" value= {this.state.optionValue} onChange={this.handleChange}>
+                                <option defaultValue disabled>Qty: </option>
                                 <option value = "1">1</option>
                                 <option value = "2">2</option>
                                 <option value = "3">3</option>
@@ -94,7 +93,7 @@ class Cart extends React.Component {
                         </form>
                         <div className="jj-cart-buttons-container">
                             <div className="jj-add-to-cart-button-container">
-                                <button className = "jj-add-to-cart-button" onClick={this.addToCart.bind(this)}><span className="jj-add-to-cart-button-text" >Add to Cart</span></button>
+                                <button className = "jj-add-to-cart-button" onClick={this.addToCart.bind(this, this.state.optionValue)}><span className="jj-add-to-cart-button-text" >Add to Cart</span></button>
                             </div>
                             <div className="jj-buy-now-button-container">
                                 <button className = "jj-buy-now-button">Buy Now</button>

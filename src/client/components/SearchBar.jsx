@@ -31,9 +31,8 @@ class SearchBar extends React.Component {
         axios.get('/search/' + searchString)
             .then((res) => {
                 console.log("submitSearch returned ", res.data.id)
-                document.productID = res.data.id;
                 //event listener to update cart info here
-                const event = new CustomEvent('productChange', {detail : res.data.id});
+                const event = new CustomEvent('updateProduct', {detail : res.data.id});
                 window.dispatchEvent(event);
             })
             .catch((err) => {
@@ -63,6 +62,12 @@ class SearchBar extends React.Component {
         })
     }
 
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            this.submitSearch(this.state.searchString);
+        }
+    }
+
     render() {
         return (
             <div className="nav-container">
@@ -77,9 +82,9 @@ class SearchBar extends React.Component {
                                     <option value='4'>Toys</option>
                                 </select>
                             </span>
-                            <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} placeholder="Search for Clothing, Cooking, Books, and Toys..."></input>
+                            <input type="text" className="form-control" value = {this.state.searchString} onChange = {this.handleSearchBarChange} onKeyPress={this.handleKeyPress.bind(this)} placeholder="Search for Clothing, Cooking, Books, and Toys..."></input>
                             <span className="input-group-addon">
-                                <button className="buttonStyle" title="Go" value="Go" onClick={this.submitSearch.bind(this, this.state.searchString)}></button>
+                                <button className="buttonStyle" title="Go" value="Go" onClick={this.submitSearch.bind(this, this.state.searchString)} ></button>
                             </span>
                         </div>
                     </div>

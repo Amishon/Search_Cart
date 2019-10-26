@@ -106,7 +106,7 @@ class Cart extends React.Component {
                         }
                             <div className="jj-cart-stock-status">In Stock.</div>
                         <form>
-                            <select className="jj-cart-qty-select" name={`qty ${this.state.optionValue}`} onChange={this.handleChange}>
+                            <select className="jj-cart-qty-select" value={this.state.optionValue} onChange={this.handleChange}>
                                 <option defaultValue disabled>Qty: </option>
                                 <option value = "1">1</option>
                                 <option value = "2">2</option>

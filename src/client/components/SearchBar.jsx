@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
 
     submitSearch(searchString) {
         console.log("submitting search", searchString);
-        axios.get('ec2-13-59-243-41.us-east-2.compute.amazonaws.com/search/' + searchString)
+        axios.get('http://ec2-13-59-243-41.us-east-2.compute.amazonaws.com/search/' + searchString)
             .then((res) => {
                 console.log("submitSearch returned ", res.data.id)
                 //event listener to update cart info here
@@ -42,7 +42,7 @@ class SearchBar extends React.Component {
 
     getCartCount() {
         console.log("SearchBar's getCartCount invoked")
-        axios.get('ec2-13-59-243-41.us-east-2.compute.amazonaws.com/cartCount')
+        axios.get('http://ec2-13-59-243-41.us-east-2.compute.amazonaws.com/cartCount')
             .then((res) => {     
                 this.setState({
                     cartCount : res.data.reduce((acc, cur) => acc + cur.qty, 0)

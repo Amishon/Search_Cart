@@ -5,10 +5,10 @@ const db = require('./db.js')
 const cors = require('cors');
 
 
-app.use(cors());
-app.use(express.static(path.join(__dirname, '/../dist/')));
+app.use(express.static(path.join(__dirname + '/../dist/')));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+// app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
 app.get('/getData/:itemId', (request, response) => {
     console.log("server /getData itemId = ", request.params.itemId);

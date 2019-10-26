@@ -55,6 +55,7 @@
   /* display: inline-block; */
   display: flex;
   flex-direction: row;
+  margin-right: 10px;
 }
 
 .nav-cart-img {
@@ -183,6 +184,8 @@
     background-position: 0 1000px;
     background-repeat: repeat-x;
 }
+
+
 
 .globe-container {
   display: inline-block;

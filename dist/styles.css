@@ -1,13 +1,36 @@
 .nav-container {
     background-color: #232f3e;
     display: flex;
+    /* flex: 1 1 auto; */
     flex-direction: row;
-    justify-content: center;   
+    justify-content: space-around;   
+    /* align-items: center; */
+}
+
+.hamburger-menu {
+  /* display: flex; */
+  /* flex-direction: flex-start; */
+  width: 42px;
+  height: 42px;
+  border: solid grey 1px;
+  margin-top: 8px;
+  
+  border-radius: 4px;
+  background: url('./images/hamburgerMenu.png') no-repeat center;
+    background-size: 70%;
+    /* background-position: 1% 50%; */
+}
+
+.farmazon-logo {
+  background: url('./images/farmazonLogo.png') no-repeat center;
+  width: 130px;
+  background-size: 100%
 }
 
 .search-bar-container {
     padding: 1% 0%;
     width: 50%;
+
 }
 
 .categorySelect {
@@ -28,14 +51,17 @@
     padding: 0!important;
 }
 
+.nav-cart-container {
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: row;
+}
+
 .nav-cart-img {
-    position: absolute;
-    right: .01%;
     height: 48px;
-    width: 10%;
+    width: 50px;
     background: url('./images/nav_cart.png') no-repeat center;
-    background-position: 45% 20%;
-    background-size: 50%;
+    background-size: 100%;
     text-align: center;
     font-size: 28px;
     line-height: 27px;
@@ -43,10 +69,24 @@
     
 }
 
-.nav-cart-text {
+.navbar-cart-count {
     /* add amazon ember font eventually */
+    /* width: 70px; */
+    padding-left: 3px;
+    font-size: 18px;
     color: #f08804;
     font-weight: 700;
+}
+
+.navbar-cart-text {
+  
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  /* clear: both; */
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 62px;
 }
 
 .jj-cart-container {
@@ -185,6 +225,12 @@
     outline: 0;
     /* overflow: visible; */
 }
+
+
+
+
+
+
 
 
 
@@ -1239,9 +1285,6 @@ html {
   }
   .glyphicon-superscript:before {
     content: "\e255";
-  }
-  .glyphicon-subscript:before {
-    content: "\e256";
   }
   .glyphicon-menu-left:before {
     content: "\e257";

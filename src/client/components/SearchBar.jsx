@@ -71,6 +71,8 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className="nav-container">
+                    <div className="hamburger-menu"></div>
+                    <div className="farmazon-logo"></div>
                     <div className="search-bar-container">
                         <div className="input-group">
                             <span className="input-group-addon">
@@ -88,9 +90,9 @@ class SearchBar extends React.Component {
                             </span>
                         </div>
                     </div>
-                <div className="nav-cart-img"><span className="nav-cart-text">{this.state.cartCount ? this.state.cartCount : null}</span></div>
+                <div className="nav-cart-container"><div className="nav-cart-img"><span className="navbar-cart-count">{this.state.cartCount ? this.state.cartCount : null}</span></div><span className="navbar-cart-text">Cart</span></div>
             </div>
-        ) 
+        )
     }
 }
 

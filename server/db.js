@@ -75,7 +75,11 @@ const searchProducts = (callback, searchString) => {
       callback(err, null);
     } else {
       console.log("db.searchProducts results = ", results)
-      callback(null, results[0])
+      if (!results[0]) {
+        callback(null, 1);
+      } else {
+        callback(null, results[0]);
+      }
     } 
   })
 }

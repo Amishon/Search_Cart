@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import moment from 'react-moment';
-
+import Countdown, { zeroPad, calcTimeDelta, formatTimeDelta } from 'react-countdown-now';
+import Moment from 'react-moment';
 
 class Cart extends React.Component {
     constructor(props) {
@@ -10,15 +10,15 @@ class Cart extends React.Component {
         this.state = {
             optionValue : 1,
             currentProduct: 1,
-            days: undefined,
-            hours: undefined,
-            minutes: undefined,
-            seconds: undefined
+            hours: 0,
+            min: 0,
+            sec: 0,
         };
 
         this.getData = this.getData.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.renderer = this.renderer.bind(this);
     }
 
     componentDidMount() {
@@ -30,19 +30,7 @@ class Cart extends React.Component {
             this.getData();
         })
         this.getData();
-        // this.interval = setInterval(() => {
-		// 	const { timeTillDate, timeFormat } = this.props;
-		// 	const then = moment(timeTillDate, timeFormat);
-		// 	const now = moment();
-		// 	const countdown = moment(then - now);
-		// 	const days = countdown.format('D');
-		// 	const hours = countdown.format('HH');
-		// 	const minutes = countdown.format('mm');
-		// 	const seconds = countdown.format('ss');
 
-		// 	this.setState({ days, hours, minutes, seconds });
-		// }, 1000);
-        
     }
 
     getData() {
@@ -87,11 +75,14 @@ class Cart extends React.Component {
         this.setState({optionValue: event.target.value})
     }
 
-    render() {
+    renderer({hours, minutes, seconds}) {
 
-        const { days, hours, minutes, seconds } = this.state;
-        return (
-            
+            return <span> {hours} hours {minutes} minutes</span>
+    }
+    
+
+    render() {
+        return (  
             <div className="jj-cart-container">
                 <div className="jj-cart">
                     <div className="jj-cart-inner">
@@ -101,7 +92,9 @@ class Cart extends React.Component {
                         <span className="jj-cart-prime-status-container">
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE One-Day</span></div>
                             <div>FREE delivery: <span>Wednesday</span></div>
-                            <div>order in the next</div>
+                            <div>Order in the next 
+                                <Countdown date={new Date('October 28, 2019 17:00')} renderer={this.renderer}/>
+                            </div>
                         </span>)
                         }
                             <div className="jj-cart-stock-status">In Stock.</div>
@@ -120,6 +113,7 @@ class Cart extends React.Component {
                             <div className="jj-buy-now-button-container">
                                 <button className = "jj-buy-now-button">Buy Now</button>
                             </div>
+                            <div>fufilled by Farmzaon, Inc.</div>
                         </div>
                     </div>
                 </div>  

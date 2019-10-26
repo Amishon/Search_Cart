@@ -90,6 +90,16 @@ class SearchBar extends React.Component {
                             </span>
                         </div>
                     </div>
+                <span className="globe-container">
+                    <span className="globe-img-2"></span>
+                    <span className="icp-nav-language">EN</span>
+                </span>
+                {/* <span className="nav-accounts-container"> */}
+                    {/* <span className="nav-line-hello">Hello, Sign in</span> */}
+                    <span className="nav-line-2">Account & Lists<span className="nav-icon"></span></span>
+                {/* </span> */}
+                <span className="nav-line-2">Orders<span className="nav-icon"></span></span>
+                <span className="nav-line-2">Try Prime<span className="nav-icon"></span></span>
                 <div className="nav-cart-container"><div className="nav-cart-img"><span className="navbar-cart-count">{this.state.cartCount ? this.state.cartCount : null}</span></div><span className="navbar-cart-text">Cart</span></div>
             </div>
         )

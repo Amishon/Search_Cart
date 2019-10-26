@@ -53,13 +53,13 @@
 
 .nav-cart-container {
   /* display: inline-block; */
-  margin-top: 4px;
   display: flex;
   flex-direction: row;
   margin-right: 10px;
 }
 
 .nav-cart-img {
+    margin-top: 5px;
     height: 48px;
     width: 50px;
     background: url('./images/nav_cart.png') no-repeat center;

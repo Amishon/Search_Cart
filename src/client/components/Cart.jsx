@@ -1,5 +1,7 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import moment from 'react-moment';
+
 
 class Cart extends React.Component {
     constructor(props) {
@@ -7,7 +9,11 @@ class Cart extends React.Component {
 
         this.state = {
             optionValue : 1,
-            currentProduct: 1
+            currentProduct: 1,
+            days: undefined,
+            hours: undefined,
+            minutes: undefined,
+            seconds: undefined
         };
 
         this.getData = this.getData.bind(this);
@@ -16,11 +22,6 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
-        // window.addEventListener('productChange', (event) => {
-        //     console.log("eventListener productId", window.productID)
-        //     this.getData();
-        // })
-
         window.addEventListener('updateProduct', (event) => {
             this.setState({
                 currentProduct: event.detail
@@ -28,11 +29,24 @@ class Cart extends React.Component {
             this.getData();
         })
         this.getData();
+        // this.interval = setInterval(() => {
+		// 	const { timeTillDate, timeFormat } = this.props;
+		// 	const then = moment(timeTillDate, timeFormat);
+		// 	const now = moment();
+		// 	const countdown = moment(then - now);
+		// 	const days = countdown.format('D');
+		// 	const hours = countdown.format('HH');
+		// 	const minutes = countdown.format('mm');
+		// 	const seconds = countdown.format('ss');
+
+		// 	this.setState({ days, hours, minutes, seconds });
+		// }, 1000);
+        
     }
 
     getData() {
         console.log("getData invoked, productID = ", this.state.currentProduct);
-        axios.get('/getData/' + this.state.currentProduct)
+        axios.get('ec2-13-59-243-41.us-east-2.compute.amazonaws.com/getData/' + this.state.currentProduct)
         .then((res) => {
             this.setState({
                 data : res.data[0]
@@ -51,11 +65,10 @@ class Cart extends React.Component {
     }
 
     addToCart(qty) {
-        // let qty = Number(this.state.optionValue);
         console.log("addToCart invoked, qty = ", qty)
         this.updateQty(qty);
 
-        axios.post('/addToCart', {
+        axios.post('ec2-13-59-243-41.us-east-2.compute.amazonaws.com/addToCart', {
             qtyToAdd: qty,
             productNum : this.state.currentProduct
         })
@@ -74,7 +87,10 @@ class Cart extends React.Component {
     }
 
     render() {
+
+        const { days, hours, minutes, seconds } = this.state;
         return (
+            
             <div className="jj-cart-container">
                 <div className="jj-cart">
                     <div className="jj-cart-inner">
@@ -83,8 +99,10 @@ class Cart extends React.Component {
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE One-Day</span></div>
                         </span>
                             <div className="jj-cart-stock-status">In Stock.</div>
+                            <div>FREE delivery: <span>Wednesday</span></div>
+                            <div>order in the next</div>
                         <form>
-                                <select className="jj-cart-qty-select" value= {this.state.optionValue} onChange={this.handleChange}>
+                                <select className="jj-cart-qty-select" value= {"qty " + this.state.optionValue} onChange={this.handleChange}>
                                 <option defaultValue disabled>Qty: </option>
                                 <option value = "1">1</option>
                                 <option value = "2">2</option>

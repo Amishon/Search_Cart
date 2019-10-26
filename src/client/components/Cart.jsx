@@ -46,7 +46,7 @@ class Cart extends React.Component {
 
     getData() {
         console.log("getData invoked, productID = ", this.state.currentProduct);
-        axios.get('ec2-13-59-243-41.us-east-2.compute.amazonaws.com/getData/' + this.state.currentProduct)
+        axios.get('/getData/' + this.state.currentProduct)
         .then((res) => {
             this.setState({
                 data : res.data[0]

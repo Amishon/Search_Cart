@@ -81,8 +81,8 @@ class Cart extends React.Component {
                         <div className="jj-cart-price-text">${this.state.data ? this.state.data.price : null}</div>
                         <span className="jj-cart-prime-status-container">
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE One-Day</span></div>
-                            <div className="jj-cart-stock-status">In Stock.</div>
                         </span>
+                            <div className="jj-cart-stock-status">In Stock.</div>
                         <form>
                                 <select className="jj-cart-qty-select" value= {this.state.optionValue} onChange={this.handleChange}>
                                 <option defaultValue disabled>Qty: </option>

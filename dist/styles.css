@@ -243,6 +243,7 @@
 }
 
 .jj-cart-prime-status-container {
+    /* display: inline-block; */
     /* maybe use later? */
 }
 
@@ -255,9 +256,11 @@
 
 .jj-cart-prime-shipping-text {
     /* this needs work... */
-    margin-left: 40%;
-    position: absolute;
-    top: 20%;
+    margin-right: 40%;
+    /* position: absolute; */
+    float: right;
+    padding-top: 6px;
+    /* top: 20px; */
     color: #555!important;
     font-style: normal;
 }

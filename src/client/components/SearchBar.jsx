@@ -44,10 +44,14 @@ class SearchBar extends React.Component {
         console.log("SearchBar's getCartCount invoked")
         axios.get('http://ec2-13-59-243-41.us-east-2.compute.amazonaws.com/cartCount')
             .then((res) => {     
+                return res.data.reduce((acc, cur) => acc + cur.qty, 0);
+                // console.log("getCartCount response = ", res.data)
+            })
+            .then((res) => {
+                console.log("res = ", res)
                 this.setState({
-                    cartCount : res.data.reduce((acc, cur) => acc + cur.qty, 0)
+                    cartCount : res
                 })
-                console.log("getCartCount response = ", res.data)
                 console.log("cartCount = ", this.state.cartCount)
             })
             .catch((err) => {

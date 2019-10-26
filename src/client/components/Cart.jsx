@@ -66,16 +66,16 @@ class Cart extends React.Component {
 
     addToCart(qty) {
         console.log("addToCart invoked, qty = ", qty)
-        this.updateQty(qty);
-
+        
         axios.post('http://ec2-13-59-243-41.us-east-2.compute.amazonaws.com/addToCart', {
             qtyToAdd: qty,
             productNum : this.state.currentProduct
         })
-            .then((response) => {
-                console.log("addToCart response = ", response)
-                this.getData();
-                
+        .then((response) => {
+            console.log("addToCart response = ", response)
+            this.getData();
+            this.updateQty(qty);
+            
             })
             .catch((error) => {
                 console.log("ERROR: ", error);
@@ -99,11 +99,11 @@ class Cart extends React.Component {
                         {this.state.data && this.state.data.prime && (
                         <span className="jj-cart-prime-status-container">
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE One-Day</span></div>
+                            <div>FREE delivery: <span>Wednesday</span></div>
+                            <div>order in the next</div>
                         </span>)
                         }
                             <div className="jj-cart-stock-status">In Stock.</div>
-                            <div>FREE delivery: <span>Wednesday</span></div>
-                            <div>order in the next</div>
                         <form>
                                 <select className="jj-cart-qty-select" value= {"qty " + this.state.optionValue} onChange={this.handleChange}>
                                 <option defaultValue disabled>Qty: </option>

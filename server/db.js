@@ -75,8 +75,8 @@ const searchProducts = (callback, searchString) => {
       callback(err, null);
     } else {
       console.log("db.searchProducts results = ", results)
-      if (!results[0]) {
-        callback(null, 1);
+      if (results[0] === undefined) {
+        callback(null, { id: 1, });
       } else {
         callback(null, results[0]);
       }

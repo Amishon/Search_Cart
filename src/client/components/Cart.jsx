@@ -95,9 +95,12 @@ class Cart extends React.Component {
                 <div className="jj-cart">
                     <div className="jj-cart-inner">
                         <div className="jj-cart-price-text">${this.state.data ? this.state.data.price : null}</div>
+                        
+                        {this.state.data && this.state.data.prime && (
                         <span className="jj-cart-prime-status-container">
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE One-Day</span></div>
-                        </span>
+                        </span>)
+                        }
                             <div className="jj-cart-stock-status">In Stock.</div>
                             <div>FREE delivery: <span>Wednesday</span></div>
                             <div>order in the next</div>

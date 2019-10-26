@@ -30,8 +30,7 @@ class SearchBar extends React.Component {
         console.log("submitting search", searchString);
         axios.get('http://ec2-13-59-243-41.us-east-2.compute.amazonaws.com/search/' + searchString)
             .then((res) => {
-                console.log("submitSearch returned ", res.data.id)
-                //event listener to update cart info here
+                console.log("submitSearch returned ", res.data.id);
                 const event = new CustomEvent('updateProduct', {detail : res.data.id});
                 window.dispatchEvent(event);
             })

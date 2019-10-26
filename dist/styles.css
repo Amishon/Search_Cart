@@ -244,10 +244,7 @@
     color: #B12704!important;
 }
 
-.jj-cart-prime-status-container {
-    /* display: inline-block; */
-    /* maybe use later? */
-}
+
 
 .jj-cart-prime-status {
     height: 30px;
@@ -269,6 +266,7 @@
 
 
 .jj-cart-stock-status {
+    margin-top: 5%;
     font-size: 17px!important;
     line-height: 1.255!important;
     color: #007600!important;
@@ -355,6 +353,23 @@
     /* overflow: visible; */
 }
 
+
+
+.jj-free-delivery {
+  margin-top: 10%
+}
+
+.jj-delivery-date {
+  font-weight: bold;
+}
+
+.jj-order-in {
+  margin-top: 2px;
+}
+
+.jj-fufilled-by {
+  margin-top: 5%
+}
 
 
 

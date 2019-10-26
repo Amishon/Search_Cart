@@ -46,7 +46,7 @@ class Cart extends React.Component {
 
     getData() {
         console.log("getData invoked, productID = ", this.state.currentProduct);
-        axios.get('/getData/' + this.state.currentProduct)
+        axios.get('/getData/1')
         .then((res) => {
             this.setState({
                 data : res.data[0]
@@ -68,7 +68,7 @@ class Cart extends React.Component {
         console.log("addToCart invoked, qty = ", qty)
         this.updateQty(qty);
 
-        axios.post('ec2-13-59-243-41.us-east-2.compute.amazonaws.com/addToCart', {
+        axios.post('/addToCart', {
             qtyToAdd: qty,
             productNum : this.state.currentProduct
         })

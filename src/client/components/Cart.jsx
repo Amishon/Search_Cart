@@ -77,7 +77,7 @@ class Cart extends React.Component {
 
     renderer({hours, minutes, seconds}) {
 
-            return <span> {hours} hours {minutes} minutes</span>
+            return <span> {hours} hrs {minutes} mins</span>
     }
     
 

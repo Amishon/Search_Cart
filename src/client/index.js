@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx'
+import SearchBar from './components/searchBar.jsx';
+import Cart from './components/Cart.jsx';
 
-ReactDOM.render(<App />, document.getElementById('jj-searchBar'));
+
+ReactDOM.render(<SearchBar />, document.getElementById('jj-searchBar'));
+ReactDOM.render(<Cart />, document.getElementById('jj-cart'));

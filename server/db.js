@@ -47,6 +47,7 @@ function seedOnce() {
 seedOnce();
 
 const getProductData = (callback, itemId) => {
+  console.log("db.getProductData itemId = ", itemId)
   products.find({id: itemId}, (err, res) => {
     if (err) {
       callback(err, null);
@@ -57,7 +58,7 @@ const getProductData = (callback, itemId) => {
 }
 
 const addToCart = (callback, itemId, qtyToAdd) => {
-  console.log('addToCart invoked');
+  console.log('addToCart invoked, itemId = ', itemId, 'qtyToAdd = ', qtyToAdd);
   products.updateOne({id: itemId}, { $inc: {qty: qtyToAdd}}, ((err, res) => {
     if (err) {
       callback(err, null);
@@ -73,7 +74,12 @@ const searchProducts = (callback, searchString) => {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, results)
+      console.log("db.searchProducts results = ", results)
+      if (results[0] === undefined) {
+        callback(null, { id: 1, });
+      } else {
+        callback(null, results[0]);
+      }
     } 
   })
 }
@@ -88,33 +94,6 @@ const getCartCount = (callback) => {
       callback(null, results)
     }
   })
-
-  // var test = products.aggregate(
-  //   [
-  //     {
-  //       $group : {
-  //         _id: null,
-  //         cartCount : { $sum: this.qty }
-  //       }
-  //     }
-  //   ]
-  // );
-
-  // console.log(test._pipeline[0]);
-
-  // products.mapReduce(function() { emit( this.qty); },
-  //                    function(key, values) {return (values)},
-  //                    {
-  //                      "query": {},
-  //                      "out": "cartCount"
-  //                    }, (error, results) => {
-  //                      if (err) {
-  //                        callback(error, null);
-  //                      } else {
-  //                        callback(null, results);
-  //                      }
-  //                    });
-
 }
 
 module.exports = {getProductData, addToCart, searchProducts, getCartCount};

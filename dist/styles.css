@@ -202,6 +202,7 @@
   display: inline-block;
   align-content: vertical;
   margin-top: 1%;
+  margin-left: .5%;
   cursor: pointer;
 }
 
@@ -217,8 +218,8 @@
 .icp-nav-language {
   color: #ccc;
   position: relative;
-  top: 15px;
-  left: -13px;
+  /* top: 10px; */
+  /* left: -2px; */
   font-size: 12px;
   line-height: 14px;
   font-weight: 400;

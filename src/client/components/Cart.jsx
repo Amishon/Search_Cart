@@ -93,7 +93,7 @@ class Cart extends React.Component {
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE Two-Day</span></div>
                             <div className="jj-free-delivery">FREE delivery: <span className="jj-delivery-date">Wednesday</span></div>
                             <div className="jj-order-in">Order in the next 
-                                <Countdown date={new Date('October 28, 2019 17:00')} renderer={this.renderer}/>
+                                <Countdown date={new Date('November 5, 2019 17:00')} renderer={this.renderer}/>
                             </div>
                         </span>)
                         }

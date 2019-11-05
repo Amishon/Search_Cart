@@ -91,9 +91,9 @@ class Cart extends React.Component {
                         {this.state.data && this.state.data.prime && (
                         <span className="jj-cart-prime-status-container">
                             <div className="jj-cart-prime-status"><span className="jj-cart-prime-shipping-text">FREE Two-Day</span></div>
-                            <div className="jj-free-delivery">FREE delivery: <span className="jj-delivery-date">Wednesday</span></div>
+                            <div className="jj-free-delivery">FREE delivery: <span className="jj-delivery-date">Thursday</span></div>
                             <div className="jj-order-in">Order in the next 
-                                <Countdown date={new Date('November 5, 2019 17:00')} renderer={this.renderer}/>
+                                <Countdown date={new Date('November 05, 2019 17:00')} renderer={this.renderer}/>
                             </div>
                         </span>)
                         }
